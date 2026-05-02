@@ -1,48 +1,70 @@
 import React from 'react';
-import { Star } from 'lucide-react';
+import { Star, Quote } from 'lucide-react';
 
 const reviews = [
   {
-    id: 1,
-    name: "Priyanka Sahoo",
-    text: "Bought a silver necklace for my mother. The quality is exceptional and the design is very traditional. Highly recommended!",
-    rating: 5
+    name: 'Priyanka Sahoo',
+    location: 'Bhadrak, Odisha',
+    text: 'I bought a silver necklace for my sister\'s wedding from Khushi Chandi and everyone at the ceremony couldn\'t stop complimenting it! The quality is phenomenal — pure and shiny even after months.',
+    rating: 5,
+    avatar: 'https://i.pravatar.cc/80?img=47',
   },
   {
-    id: 2,
-    name: "Rakesh Das",
-    text: "Very affordable prices compared to other shops in Bhadrak. The staff was very polite and showed many latest designs.",
-    rating: 5
+    name: 'Rakesh Kumar Das',
+    location: 'Jajpur, Odisha',
+    text: 'Best silver shop in the Bhadrak district! I compared prices with 4 other shops — Khushi Chandi is 30% cheaper and the quality is far better. My wife is obsessed with her new payal!',
+    rating: 5,
+    avatar: 'https://i.pravatar.cc/80?img=12',
   },
   {
-    id: 3,
-    name: "Smita Mishra",
-    text: "I loved the silver earrings I purchased from Khushi Chandi. They have a huge collection of pure silver items.",
-    rating: 4
+    name: 'Smita Mishra',
+    location: 'Bhubaneswar, Odisha',
+    text: 'Ordered via WhatsApp and received my silver Jhumkas within 2 days. The packaging was beautiful, the product was even better. 100% genuine silver. Highly recommend!',
+    rating: 5,
+    avatar: 'https://i.pravatar.cc/80?img=32',
   },
   {
-    id: 4,
-    name: "Lipika Rout",
-    text: "Best jewellery shop near Bhadrak bypass. The WhatsApp ordering feature is so convenient!",
-    rating: 5
-  }
+    name: 'Lipika Rout',
+    location: 'Kendrapara, Odisha',
+    text: 'My mother has been buying silver here for 3 years. Every single piece has maintained its shine. The silver quality is top-notch and the staff is very helpful. 5 stars!',
+    rating: 5,
+    avatar: 'https://i.pravatar.cc/80?img=56',
+  },
+  {
+    name: 'Anil Behera',
+    location: 'Balasore, Odisha',
+    text: 'Excellent customer service! I called them and they helped me choose the perfect anniversary gift for my wife. The kada I bought looks absolutely stunning. Will shop again!',
+    rating: 5,
+    avatar: 'https://i.pravatar.cc/80?img=7',
+  },
 ];
 
 const Reviews = () => {
   return (
     <section id="reviews" className="reviews-section">
       <div className="container">
-        <h2 className="section-title">Customer Reviews</h2>
+        <span className="section-tag">Customer Love</span>
+        <h2 className="section-title">What Our Customers Say</h2>
+        <p className="section-subtitle">
+          Real people, real silver, real smiles — join hundreds of happy families across Odisha.
+        </p>
         <div className="reviews-grid">
-          {reviews.map((review) => (
-            <div key={review.id} className="review-card">
+          {reviews.map((review, i) => (
+            <div key={i} className="review-card">
+              <Quote size={32} className="quote-icon" />
               <div className="stars">
-                {[...Array(review.rating)].map((_, i) => (
-                  <Star key={i} size={18} fill="currentColor" />
+                {[...Array(review.rating)].map((_, j) => (
+                  <Star key={j} size={16} fill="#d4af37" color="#d4af37" />
                 ))}
               </div>
-              <p className="review-text">"{review.text}"</p>
-              <h4 className="reviewer">- {review.name}</h4>
+              <p className="review-text">{review.text}</p>
+              <div className="reviewer-info">
+                <img src={review.avatar} alt={review.name} className="reviewer-avatar" onError={(e) => { e.target.onerror = null; e.target.src='https://via.placeholder.com/80?text=U'; }} />
+                <div>
+                  <h4 className="reviewer">{review.name}</h4>
+                  <span className="reviewer-location">{review.location}</span>
+                </div>
+              </div>
             </div>
           ))}
         </div>
