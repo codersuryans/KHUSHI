@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { ShoppingBag, Menu, X } from 'lucide-react';
 import { CartContext } from '../context/CartContext';
-import logo from '../assets/logo.png';
+import logo from '../assets/logo.jpg';
 
 const Navbar = () => {
   const { getCartCount, setIsCartOpen } = useContext(CartContext);
