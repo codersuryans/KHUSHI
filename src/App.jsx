@@ -23,6 +23,9 @@ function App() {
       <Contact />
       <Footer />
       <FloatingWhatsApp />
+      <div className="demo-banner">
+        This is a Demo Website developed by Jagannath Global Tech
+      </div>
     </CartProvider>
   );
 }
